@@ -1,0 +1,13 @@
+<mat-toolbar color="primary" role="heading">
+  <button mat-icon-button (click)="clickMenu()">
+    <mat-icon>menu</mat-icon>
+  </button>
+             <span>Colledge</span>
+         
+         <div class="spacer"></div>
+        <a mat-button routerLink="home"><mat-icon>home</mat-icon>Home </a>
+        <a mat-button routerLink="feedback"><mat-icon>feedback</mat-icon>Feedback </a>
+        <a mat-raised-button color="accent" routerLink="logout"><mat-icon> logout</mat-icon>logout </a>   
+        </mat-toolbar>
+
+<router-outlet></router-outlet>

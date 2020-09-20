@@ -1,0 +1,8 @@
+<mat-sidenav-container class='app-drawer-container' halfscreen>
+    <mat-sidenav #sidenav mode="side" role="nevigation">
+        <app-sidenav-list (sidenavClose)="sidenav.close()"></app-sidenav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <button mat-button (click)="sidenav.toggle()">main content</button>
+    </mat-sidenav-content>
+</mat-sidenav-container>
