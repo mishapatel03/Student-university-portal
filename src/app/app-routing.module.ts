@@ -1,3 +1,5 @@
+import { LayoutsComponent } from './layouts/layouts.component';
+import { LoginComponent } from './login/login.component';
 import { PaymentComponent } from './layouts/drawer/sidenav-list/payment/payment.component';
 import { TranscriptComponent } from './layouts/drawer/sidenav-list/transcript/transcript.component';
 import { ResultsComponent } from './layouts/drawer/sidenav-list/results/results.component';
@@ -12,6 +14,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
+  { path: '', redirectTo: 'layout', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
   { path:'logout', component: LogoutComponent },
   { path:'home', component: HomeComponent },
   { path:'feedback', component: FeedbackComponent },
@@ -19,6 +23,7 @@ const routes: Routes = [
   { path:'transcript', component: TranscriptComponent },
   { path:'results', component: ResultsComponent },
   { path:'payment', component: PaymentComponent },
+  { path: 'layout', component: LayoutsComponent }
 ];
 
 @NgModule({
