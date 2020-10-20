@@ -7,15 +7,14 @@ import { DegreecertificateComponent } from './layouts/drawer/sidenav-list/degree
 import { LogoutComponent } from './layouts/header/logout/logout.component';
 import { FeedbackComponent } from './layouts/header/feedback/feedback.component';
 import { HomeComponent } from './layouts/header/home/home.component';
-//import { HComponent } from './layouts/header/h/h.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'layout', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
+  //{ path: '', redirectTo: 'layout', pathMatch: 'full' },
+  { path: '', component: LoginComponent },
   { path:'logout', component: LogoutComponent },
   { path:'home', component: HomeComponent },
   { path:'feedback', component: FeedbackComponent },
@@ -23,7 +22,7 @@ const routes: Routes = [
   { path:'transcript', component: TranscriptComponent },
   { path:'results', component: ResultsComponent },
   { path:'payment', component: PaymentComponent },
-  { path: 'layout', component: LayoutsComponent }
+  //{ path: '', component: LayoutsComponent }
 ];
 
 @NgModule({
