@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { SideNavService } from '../side-nav.service';
+import { SideNavService } from 'src/app/layouts/services/side-nav.service';
 import { MatSidenav } from '@angular/material/sidenav';
 
 
