@@ -14,6 +14,7 @@ import { LayoutsComponent } from './layouts.component';
 import { DrawerComponent } from './components/drawer/drawer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { from } from 'rxjs';
+import { Routes } from '@angular/router';
 
 import { HomeComponent } from './components/header/home/home.component';
 import { FeedbackComponent } from './components/header/feedback/feedback.component';
@@ -22,6 +23,10 @@ import { DegreecertificateComponent } from './components/drawer/sidenav-list/deg
 import { ResultsComponent } from './components/drawer/sidenav-list/results/results.component';
 import { TranscriptComponent } from './components/drawer/sidenav-list/transcript/transcript.component';
 import { PaymentComponent } from './components/drawer/sidenav-list/payment/payment.component';
+
+const routes: Routes = [
+  //{ path: '', redirectTo: 'layout', pathMatch: 'full' },
+  { path: '', component: LayoutsComponent },];
 
 
 @NgModule({
@@ -51,6 +56,7 @@ import { PaymentComponent } from './components/drawer/sidenav-list/payment/payme
     HeaderComponent,
     DrawerComponent,
     LayoutsComponent,
+    RouterModule
   ],
   providers:[
     SideNavService

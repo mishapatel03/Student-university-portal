@@ -1,8 +1,8 @@
 export class User {
     id:number;
-    emailId:string;
+    email:string;
     userName:string;
-    password:string;
+    enrollment:string;
 
     constructor(){}
 }

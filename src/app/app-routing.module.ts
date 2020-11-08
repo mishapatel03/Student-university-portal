@@ -1,3 +1,4 @@
+import { from } from 'rxjs';
 import { LayoutsComponent } from './layouts/layouts.component';
 import { LoginComponent } from './login/login.component';
 import { PaymentComponent } from './layouts/components/drawer/sidenav-list/payment/payment.component';
@@ -9,6 +10,7 @@ import { FeedbackComponent } from './layouts/components/header/feedback/feedback
 import { HomeComponent } from './layouts/components/header/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { LayoutsModule } from './layouts/layouts.module';
 
 
 
@@ -22,11 +24,14 @@ const routes: Routes = [
   { path:'transcript', component: TranscriptComponent },
   { path:'results', component: ResultsComponent },
   { path:'payment', component: PaymentComponent },
-  //{ path: '', component: LayoutsComponent }
+  {
+    path: 'layout',
+    loadChildren: ()=> import('./layouts/layouts.module').then(m=>m.LayoutsModule)
+    }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule,LayoutsModule]
 })
 export class AppRoutingModule { }
