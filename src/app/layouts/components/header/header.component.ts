@@ -10,13 +10,13 @@ import { MatSidenav } from '@angular/material/sidenav';
   // providers: [SideNavService]
 })
 export class HeaderComponent {     
-  @ViewChild('sidenav') public sidenav: MatSidenav;
+  //@ViewChild('sidenav') public sidenav: MatSidenav;
 
   constructor(private SideNavService: SideNavService) {
 
   }
 
-  clickMenu() { 
-    this.SideNavService.toggle();
-  }
+  // clickMenu() { 
+  //   this.SideNavService.toggle();
+  // }
 }

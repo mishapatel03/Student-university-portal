@@ -10,9 +10,7 @@ import { FeedbackComponent } from './layouts/components/header/feedback/feedback
 import { HomeComponent } from './layouts/components/header/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LayoutsModule } from './layouts/layouts.module';
-
-
+//import { LayoutsModule } from './layouts/layouts.module';
 
 const routes: Routes = [
   //{ path: '', redirectTo: 'layout', pathMatch: 'full' },
@@ -25,13 +23,13 @@ const routes: Routes = [
   { path:'results', component: ResultsComponent },
   { path:'payment', component: PaymentComponent },
   {
-    path: 'layout',
-    loadChildren: ()=> import('./layouts/layouts.module').then(m=>m.LayoutsModule)
+    path: 'layout',component:LayoutsComponent
+    //loadChildren: ()=> import('./layouts/layouts.module').then(m=>m.LayoutsModule)
     }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule,LayoutsModule]
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

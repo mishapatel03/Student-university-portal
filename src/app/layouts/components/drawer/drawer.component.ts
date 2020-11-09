@@ -17,7 +17,7 @@ export class DrawerComponent implements OnInit {
 
   ngOnInit() {
     this.SideNavService.sideNavToggleSubject.subscribe(()=>{
-      this.sidenav.toggle();
+      this.SideNavService.toggle();
     })
   }
 
