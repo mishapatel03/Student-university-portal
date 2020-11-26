@@ -13,8 +13,8 @@ import { Routes, RouterModule } from '@angular/router';
 //import { LayoutsModule } from './layouts/layouts.module';
 
 const routes: Routes = [
-  //{ path: '', redirectTo: 'layout', pathMatch: 'full' },
-  { path: '', component: LoginComponent },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
   { path:'logout', component: LogoutComponent },
   { path:'home', component: HomeComponent },
   { path:'feedback', component: FeedbackComponent },

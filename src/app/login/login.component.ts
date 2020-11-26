@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { LoginUserService } from './login-user.service';
 import { User } from './user';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -19,12 +18,11 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  loginUser(){
-    this._service.loginUserFromRemote(this.user).subscribe(
-      data =>{ console.log("response received");
-      this._router.navigate(['/layout'])
-    },
-      error => {
+  loginUser() {
+    this._service.loginUserFromRemote(this.user).subscribe((data: any) => {
+      console.log("response received", data);
+      this._router.navigate(['/layout']);
+    }, (error: any) => {
         console.log("exception occured");
         this.msg="Bad credentials, please enter valid emailid and password";
       }
