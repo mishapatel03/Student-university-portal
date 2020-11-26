@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Utils } from './../services/utils.service';
 import { Injectable } from '@angular/core';
 import { User } from './user';
@@ -10,7 +11,7 @@ import { map } from 'rxjs/operators';
 })
 export class LoginUserService {
 
-  constructor( private _http : HttpClient) {   }
+  constructor( private _http : HttpClient, private router: Router) {   }
   
   public httpOptions: any = {
     headers: new HttpHeaders({'Content-Type':'application/json'})
@@ -28,7 +29,14 @@ export class LoginUserService {
     }));
   }
 
-  public isLoggedIn(): boolean {
-    return JSON.parse(localStorage.userInfo).isLoggedIn;
+  public get isLoggedIn(): boolean {
+    const userInfo = JSON.parse(localStorage.userInfo);
+    
+    return !Utils.isNullOrUndefined(userInfo) ? userInfo.isLoggedIn : false;
+  }
+
+  public logout(): void {
+    localStorage.removeItem('userInfo');
+    this.router.navigate([ 'login' ]);
   }
 }

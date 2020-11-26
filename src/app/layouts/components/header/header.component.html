@@ -7,8 +7,9 @@
     <a mat-button routerLink="/feedback">
         <mat-icon>feedback</mat-icon>Feedback
     </a>
-    <a mat-raised-button color="/accent" routerLink="logout">
+    <!-- <a mat-raised-button color="/accent" routerLink="logout">
         <mat-icon> logout</mat-icon>logout
-    </a>
+    </a> -->
+    <button class="logout" (click)="logout()">Logout</button>
 </mat-toolbar>
 <router-outlet></router-outlet>

@@ -1,3 +1,4 @@
+import { LoginUserService } from './../../../login/login-user.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { SideNavService } from 'src/app/layouts/services/side-nav.service';
 import { MatSidenav } from '@angular/material/sidenav';
@@ -12,8 +13,12 @@ import { MatSidenav } from '@angular/material/sidenav';
 export class HeaderComponent {     
   //@ViewChild('sidenav') public sidenav: MatSidenav;
 
-  constructor(private SideNavService: SideNavService) {
+  constructor(private SideNavService: SideNavService, private loginService: LoginUserService) {
 
+  }
+
+  public logout(): void {
+    this.loginService.logout();
   }
 
   // clickMenu() { 

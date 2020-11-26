@@ -8,13 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'front';
+  public isLoggedIn: boolean;
 
-  constructor(private loginService: LoginUserService, private router: Router) {}
+  constructor(private loginService: LoginUserService) {}
 
   public ngOnInit(): void {
-    if (!this.loginService.isLoggedIn) {
-      this.router.navigate(['login']);
-    }
+    this.isLoggedIn = this.loginService.isLoggedIn;
   }
 }
