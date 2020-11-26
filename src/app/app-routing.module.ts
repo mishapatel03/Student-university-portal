@@ -12,8 +12,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 //import { LayoutsModule } from './layouts/layouts.module';
 
+
+
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path:'logout', component: LogoutComponent },
   { path:'home', component: HomeComponent },
@@ -23,9 +25,9 @@ const routes: Routes = [
   { path:'results', component: ResultsComponent },
   { path:'payment', component: PaymentComponent },
   {
-    path: 'layout',component:LayoutsComponent
+    path: 'layout', component: LayoutsComponent
     //loadChildren: ()=> import('./layouts/layouts.module').then(m=>m.LayoutsModule)
-    }
+  }
 ];
 
 @NgModule({

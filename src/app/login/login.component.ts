@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   loginUser() {
     this._service.loginUserFromRemote(this.user).subscribe((data: any) => {
       console.log("response received", data);
-      this._router.navigate(['/home']);
+      this._router.navigate(['/layout']);
     }, (error: any) => {
         console.log("exception occured");
         this.msg="Bad credentials, please enter valid emailid and password";
@@ -30,3 +30,13 @@ export class LoginComponent implements OnInit {
   }
 
 }
+// loginUser(){
+//   this._service.loginUserFromRemote(this.user).subscribe(
+//     data =>{ console.log("response received");
+//     this._router.navigate(['/layout'])
+//   },
+//     error => {
+//       console.log("exception occured");
+//       this.msg="Bad credentials, please enter valid emailid and password";
+//     }
+//   );
