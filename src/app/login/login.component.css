@@ -1,0 +1,12 @@
+:host {
+    display: block;
+    width: 100%;
+}
+
+.login-container {
+    width: 420px;
+    margin: 150px 10% 0 auto;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    padding: 100px 40px;
+}

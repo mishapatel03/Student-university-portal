@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { subscribeOn } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'

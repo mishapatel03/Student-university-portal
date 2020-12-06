@@ -10,12 +10,12 @@ import { FeedbackComponent } from './layouts/components/header/feedback/feedback
 import { HomeComponent } from './layouts/components/header/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-//import { LayoutsModule } from './layouts/layouts.module';
+// import { LayoutsModule } from './layouts/layouts.module';
 
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path:'logout', component: LogoutComponent },
   { path:'home', component: HomeComponent },
@@ -23,12 +23,13 @@ const routes: Routes = [
   { path:'degreecertificate', component: DegreecertificateComponent },
   { path:'transcript', component: TranscriptComponent },
   { path:'results', component: ResultsComponent },
-  { path:'payment', component: PaymentComponent },
-  {
-    path: 'layout', component: LayoutsComponent
-    //loadChildren: ()=> import('./layouts/layouts.module').then(m=>m.LayoutsModule)
-  }
+  { path:'payment', component: PaymentComponent }
 ];
+
+// {
+//   path: 'layout', component: LayoutsComponent
+//   loadChildren: ()=> import('./layouts/layouts.module').then(m=>m.LayoutsModule)
+// }
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,8 +1,9 @@
 <mat-toolbar color="primary" role="heading">
-    <p>College</p>
+    <p class="logo">College</p>
     <div class="spacer"></div>
     <a mat-button routerLink="/home">
-        <mat-icon>home</mat-icon>Home
+        <mat-icon>home</mat-icon>
+        <span></span>
     </a>
     <a mat-button routerLink="/feedback">
         <mat-icon>feedback</mat-icon>Feedback
@@ -10,6 +11,7 @@
     <!-- <a mat-raised-button color="/accent" routerLink="logout">
         <mat-icon> logout</mat-icon>logout
     </a> -->
-    <button class="logout" (click)="logout()">Logout</button>
+    <button *ngIf="isLoggedIn" class="logout" (click)="logout()">Logout</button>
+    <button *ngIf="!isLoggedIn" class="logout" (click)="login()">Login</button>
 </mat-toolbar>
 <router-outlet></router-outlet>

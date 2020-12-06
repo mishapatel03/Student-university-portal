@@ -1,3 +1,4 @@
+import { Utils } from './services/utils.service';
 import { Router } from '@angular/router';
 import { LoginUserService } from './login/login-user.service';
 import { Component, OnInit } from '@angular/core';
@@ -13,6 +14,6 @@ export class AppComponent implements OnInit {
   constructor(private loginService: LoginUserService) {}
 
   public ngOnInit(): void {
-    this.isLoggedIn = this.loginService.isLoggedIn;
+    this.isLoggedIn = Utils.isNullOrUndefined(this.loginService.isLoggedIn) ? false : this.loginService.isLoggedIn;
   }
 }
