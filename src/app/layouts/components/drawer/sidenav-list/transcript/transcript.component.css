@@ -1,0 +1,46 @@
+.header {
+    padding: 20px;
+    text-align: center;
+}
+
+.thumbnail-container {
+    display: flex;
+    padding: 20px;
+}
+
+.tile {
+    width: 50%;
+    text-align: center;
+    height: 64px;
+    background: #ececec;
+    margin-right: 12px;
+    border-radius: 6px;
+    border: 2px solid #ececec;
+}
+
+.tile.active {
+    background: white;
+}
+
+.tile-title {
+    font-size: 16px;
+    line-height: 64px;
+    margin: 0;
+}
+
+.process-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 40px;
+    border: 1px solid #ced4d9;
+    border-radius: 8px;
+    margin-top: 40px;
+}
+
+.sub-label {
+    color: #6b6b6b;
+}
+
+.form-check {
+    margin-bottom: 1rem;
+}

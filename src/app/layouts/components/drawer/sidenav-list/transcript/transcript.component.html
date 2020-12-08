@@ -1,1 +1,41 @@
-<p>transcript works!</p>
+<section>
+    <h2 class="header">Order Transcripts</h2>
+    <div class="thumbnail-container">
+        <div class="tile" [ngClass]="{ 'active': selectedChoice === 'APPLY_NEW' }" (click)="updateUserChoice(applyNew)">
+            <p class="tile-title">Apply New</p>
+        </div>
+        <div class="tile" [ngClass]="{ 'active': selectedChoice === 'CHECK_STATUS' }"
+            (click)="updateUserChoice(checkStatus)">
+            <p class="tile-title">Check Status</p>
+        </div>
+    </div>
+    <div class="process-container">
+        <ng-container *ngIf="selectedChoice === 'APPLY_NEW'">
+            <form>
+                <div class="form-group">
+                    <label for="enrollmentNo">Enrollment No</label>
+                    <input type="text" class="form-control" id="enrollmentNo" aria-describedby="enrollment">
+                </div>
+                <div class="form-group">
+                    <label>Select the type of Transcript</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="lengthChoice" id="lengthChoicePartial"
+                            value="option1" checked>
+                        <label class="form-check-label" for="lengthChoicePartial">
+                            Partial Degree <span class="sub-label">(Before Graduation)</span>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="lengthChoice" id="lengthChoiceFull"
+                            value="option2">
+                        <label class="form-check-label" for="lengthChoiceFull">
+                            Full Degree <span class="sub-label">(After Graduation)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </ng-container>
+    </div>
+</section>
