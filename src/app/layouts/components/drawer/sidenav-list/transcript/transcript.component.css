@@ -22,6 +22,11 @@
     background: white;
 }
 
+.tile:hover {
+    cursor: pointer;
+    box-shadow: 0 0 2px 0px #868686;
+}
+
 .tile-title {
     font-size: 16px;
     line-height: 64px;
@@ -43,4 +48,9 @@
 
 .form-check {
     margin-bottom: 1rem;
+}
+
+.semesters,
+.copies {
+    max-width: 200px;
 }

@@ -11,30 +11,40 @@
     </div>
     <div class="process-container">
         <ng-container *ngIf="selectedChoice === 'APPLY_NEW'">
-            <form>
+            <form [formGroup]="newTranscriptForm">
                 <div class="form-group">
                     <label for="enrollmentNo">Enrollment No</label>
-                    <input type="text" class="form-control" id="enrollmentNo" aria-describedby="enrollment">
+                    <input type="text" class="form-control" id="enrollmentNo" [formControl]="enrollmentNoFC" aria-describedby="enrollment">
                 </div>
                 <div class="form-group">
                     <label>Select the type of Transcript</label>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="lengthChoice" id="lengthChoicePartial"
-                            value="option1" checked>
+                            value="partial" [formControl]="degreeLengthFC">
                         <label class="form-check-label" for="lengthChoicePartial">
                             Partial Degree <span class="sub-label">(Before Graduation)</span>
                         </label>
                     </div>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="lengthChoice" id="lengthChoiceFull"
-                            value="option2">
+                            value="full" [formControl]="degreeLengthFC" checked>
                         <label class="form-check-label" for="lengthChoiceFull">
                             Full Degree <span class="sub-label">(After Graduation)</span>
                         </label>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="semesters">Semeter</label>
+                    <select class="form-control semesters" id="semesters" [formControl]="semesterFC">
+                      <option *ngFor="let sem of semesters">{{ sem }}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="copies">Number of Copies</label>
+                    <input class="form-control copies" type="number" [formControl]="numberOfCopiesFC">
+                </div>                
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button class="btn btn-secondary" (click)="submitApplication()">Apply</button>
             </form>
         </ng-container>
     </div>

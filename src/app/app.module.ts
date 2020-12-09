@@ -32,7 +32,7 @@
 // export class AppModule { }
 
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //import { LayoutsModule } from './layouts/layouts.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -86,6 +86,7 @@ import { PaymentComponent } from './layouts/components/drawer/sidenav-list/payme
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     CommonModule,
