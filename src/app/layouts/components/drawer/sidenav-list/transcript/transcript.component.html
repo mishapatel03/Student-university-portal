@@ -1,16 +1,16 @@
 <section>
     <h2 class="header">Order Transcripts</h2>
     <div class="thumbnail-container">
-        <div class="tile" [ngClass]="{ 'active': selectedChoice === 'APPLY_NEW' }" (click)="updateUserChoice(applyNew)">
+        <div class="tile" [ngClass]="{ 'active': isApplyNew }" (click)="updateUserChoice(applyNew)">
             <p class="tile-title">Apply New</p>
         </div>
-        <div class="tile" [ngClass]="{ 'active': selectedChoice === 'CHECK_STATUS' }"
+        <div class="tile" [ngClass]="{ 'active': !isApplyNew }"
             (click)="updateUserChoice(checkStatus)">
             <p class="tile-title">Check Status</p>
         </div>
     </div>
     <div class="process-container">
-        <ng-container *ngIf="selectedChoice === 'APPLY_NEW'">
+        <ng-container *ngIf="isApplyNew">
             <form [formGroup]="newTranscriptForm">
                 <div class="form-group">
                     <label for="enrollmentNo">Enrollment No</label>
@@ -44,8 +44,11 @@
                     <input class="form-control copies" type="number" [formControl]="numberOfCopiesFC">
                 </div>                
 
-                <button class="btn btn-secondary" (click)="submitApplication()">Apply</button>
+                <button class="btn btn-secondary apply-btn" (click)="submitApplication()">Apply</button>
             </form>
+        </ng-container>
+        <ng-container *ngIf="!isApplyNew">
+            Check Status
         </ng-container>
     </div>
 </section>

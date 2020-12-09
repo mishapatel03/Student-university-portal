@@ -1,3 +1,5 @@
+import { LoginUserService } from './../../../../../login/login-user.service';
+import { User, ResultSubject } from 'src/app/typings';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultsComponent implements OnInit {
 
-  constructor() { }
+  public user: User;
+  public results: {
+    sem: string;
+    subjectResult: ResultSubject[];
+  }[] = [];
 
-  ngOnInit(): void {
+  private loginService: LoginUserService;
+
+  constructor(loginService: LoginUserService) {
+    Object.assign(this, { loginService });
   }
 
+  public ngOnInit(): void {
+    this.user = this.loginService.userDetails;
+
+    for (let [key, value] of Object.entries(this.user.result[0])) {
+      const result = {
+        sem: key,
+        subjectResult: value
+      };
+
+      this.results.push(result);
+    }
+  }
 }

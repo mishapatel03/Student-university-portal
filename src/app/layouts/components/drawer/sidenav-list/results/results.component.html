@@ -1,1 +1,24 @@
-<p>results works!</p>
+<section>
+    <h2 class="page-header">Results</h2>
+    <div class="accordion-holder">
+        <mat-accordion>
+            <mat-expansion-panel *ngFor="let result of results; index as index">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                Semester {{ index + 1 }}
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="subject-results">
+                <div class="result-row header">
+                    <p>Subject</p>
+                    <p>Grade</p>
+                </div>
+                <div class="result-row" *ngFor="let sub of result.subjectResult">
+                    <p>{{ sub.subject }}</p>
+                    <p>{{ sub.grade }}</p>
+                </div>
+            </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+</section>

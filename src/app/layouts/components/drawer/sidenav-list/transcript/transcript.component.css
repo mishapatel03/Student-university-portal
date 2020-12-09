@@ -54,3 +54,7 @@
 .copies {
     max-width: 200px;
 }
+
+.apply-btn {
+    width: 100px;
+}

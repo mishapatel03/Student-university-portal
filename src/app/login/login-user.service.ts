@@ -37,6 +37,12 @@ export class LoginUserService {
     return !Utils.isNullOrUndefined(userInfo) ? userInfo.isLoggedIn : false;
   }
 
+  public get userDetails(): User {
+    const userInfo: User = Utils.isNullOrUndefined(localStorage.userInfo) ? undefined : JSON.parse(localStorage.userInfo);
+
+    return userInfo;
+  }
+
   public logout(): void {
     localStorage.clear();
     this.router.navigate([ 'login' ]);

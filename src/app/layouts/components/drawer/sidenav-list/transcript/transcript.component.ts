@@ -14,6 +14,7 @@ export class TranscriptComponent implements OnInit {
   public applyNew = TRANSCRIPT_USER_CHOICE.APPLY_NEW;
   public checkStatus = TRANSCRIPT_USER_CHOICE.CHECK_STATUS;
   public selectedChoice: TRANSCRIPT_USER_CHOICE = TRANSCRIPT_USER_CHOICE.APPLY_NEW;
+  public isApplyNew = true;
 
   public semesters = [1,2,3,4,5,6,7,8];
 
@@ -50,6 +51,7 @@ export class TranscriptComponent implements OnInit {
 
   public updateUserChoice(choice: TRANSCRIPT_USER_CHOICE): void {
     this.selectedChoice = choice;
+    this.isApplyNew = this.selectedChoice === this.applyNew;
   }
 
   public submitApplication(): void {

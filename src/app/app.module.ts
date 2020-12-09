@@ -51,7 +51,8 @@ import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatIconModule } from '@angular/material/icon'
 import { MatMenuModule } from '@angular/material/menu'
 import { MatButtonModule } from '@angular/material/button'
-import {MatListModule} from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 
 import { DrawerComponent } from './layouts/components/drawer/drawer.component';
@@ -95,7 +96,8 @@ import { PaymentComponent } from './layouts/components/drawer/sidenav-list/payme
     MatIconModule,
     MatMenuModule,
     MatButtonModule,
-    MatListModule,RouterModule
+    MatListModule,
+    MatExpansionModule
   ],
   exports:[
     HeaderComponent,
