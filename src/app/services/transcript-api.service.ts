@@ -16,7 +16,10 @@ export class TranscriptApiService {
   ) { }
 
   public submitNewTranscript(body: any): Observable<any> {
-    return this.httpClient.post('http://localhost:8085/api/v1/transcripts/add', JSON.stringify(body), { ...this.httpOptions });
+    return this.httpClient.post(`http://localhost:8085/api/v1/transcripts/add`, JSON.stringify(body), { ...this.httpOptions });
   }
 
+  public checkTranscriptStatus(applicationNo: string): Observable<any> {
+    return this.httpClient.get(`http://localhost:8085/api/v1/transcripts/check-status/${applicationNo}`, { ...this.httpOptions });
+  }
 }

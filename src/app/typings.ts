@@ -24,3 +24,14 @@ export interface ResultSubject {
     subject?: string;
     grade?: string;
 }
+
+export interface ApplicationStatus {
+    applicationNumber: string;
+    degreeLength: string;
+    enrollmentNo: string;
+    numberOfCopies: number | string;
+    date: string;
+    displayDate?: string;
+    semesters: number | string;
+    status: string;
+}
