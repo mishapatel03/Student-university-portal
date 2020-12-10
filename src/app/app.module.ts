@@ -32,7 +32,7 @@
 // export class AppModule { }
 
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //import { LayoutsModule } from './layouts/layouts.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -51,7 +51,8 @@ import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatIconModule } from '@angular/material/icon'
 import { MatMenuModule } from '@angular/material/menu'
 import { MatButtonModule } from '@angular/material/button'
-import {MatListModule} from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 
 import { DrawerComponent } from './layouts/components/drawer/drawer.component';
@@ -86,6 +87,7 @@ import { PaymentComponent } from './layouts/components/drawer/sidenav-list/payme
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     CommonModule,
@@ -94,7 +96,8 @@ import { PaymentComponent } from './layouts/components/drawer/sidenav-list/payme
     MatIconModule,
     MatMenuModule,
     MatButtonModule,
-    MatListModule,RouterModule
+    MatListModule,
+    MatExpansionModule
   ],
   exports:[
     HeaderComponent,

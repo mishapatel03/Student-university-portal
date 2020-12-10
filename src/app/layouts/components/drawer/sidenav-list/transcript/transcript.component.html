@@ -1,41 +1,90 @@
 <section>
     <h2 class="header">Order Transcripts</h2>
     <div class="thumbnail-container">
-        <div class="tile" [ngClass]="{ 'active': selectedChoice === 'APPLY_NEW' }" (click)="updateUserChoice(applyNew)">
+        <div class="tile" [ngClass]="{ 'active': isApplyNew }" (click)="updateUserChoice(applyNew)">
             <p class="tile-title">Apply New</p>
         </div>
-        <div class="tile" [ngClass]="{ 'active': selectedChoice === 'CHECK_STATUS' }"
+        <div class="tile" [ngClass]="{ 'active': !isApplyNew }"
             (click)="updateUserChoice(checkStatus)">
             <p class="tile-title">Check Status</p>
         </div>
     </div>
     <div class="process-container">
-        <ng-container *ngIf="selectedChoice === 'APPLY_NEW'">
-            <form>
+        <ng-container *ngIf="isApplyNew">
+            <form [formGroup]="newTranscriptForm">
                 <div class="form-group">
-                    <label for="enrollmentNo">Enrollment No</label>
-                    <input type="text" class="form-control" id="enrollmentNo" aria-describedby="enrollment">
+                    <label for="enrollmentNo">Enrollment Number</label>
+                    <input type="text" class="form-control" id="enrollmentNo" [formControl]="enrollmentNoFC" aria-describedby="enrollment">
                 </div>
                 <div class="form-group">
                     <label>Select the type of Transcript</label>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="lengthChoice" id="lengthChoicePartial"
-                            value="option1" checked>
+                            value="partial" [formControl]="degreeLengthFC">
                         <label class="form-check-label" for="lengthChoicePartial">
                             Partial Degree <span class="sub-label">(Before Graduation)</span>
                         </label>
                     </div>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="lengthChoice" id="lengthChoiceFull"
-                            value="option2">
+                            value="full" [formControl]="degreeLengthFC">
                         <label class="form-check-label" for="lengthChoiceFull">
                             Full Degree <span class="sub-label">(After Graduation)</span>
                         </label>
                     </div>
                 </div>
-
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="form-group">
+                    <label for="semesters">Semester</label>
+                    <select class="form-control semesters" id="semesters" [formControl]="semesterFC">
+                      <option *ngFor="let sem of semesters" [value]="sem">{{ sem }}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="copies">Number of Copies</label>
+                    <input class="form-control copies" type="number" [formControl]="numberOfCopiesFC">
+                </div>                
+                <div class="form-group actions">
+                    <button type="button" class="btn btn-danger reset-btn" (click)="reset()">Reset</button>
+                    <button class="btn btn-secondary apply-btn" (click)="submitApplication()">Apply</button>
+                </div>
             </form>
+        </ng-container>
+        <ng-container *ngIf="!isApplyNew">
+            <ng-container *ngIf="!isStatusPresent">
+                <form [formGroup]="checkStatusForm">
+                    <div class="form-group">
+                        <label for="appNo">Application Number</label>
+                        <input type="text" class="form-control" id="appNo" [formControl]="applicationNoFC" aria-describedby="appNo">
+                    </div>
+                    <div class="form-group actions">
+                        <button type="button" class="btn btn-danger reset-btn" (click)="reset()">Reset</button>
+                        <button class="btn btn-secondary apply-btn" (click)="checkStatusSubmit()">Track</button>
+                    </div>
+                </form>
+            </ng-container>
+            <ng-container *ngIf="isStatusPresent">
+                <h2>Application Status</h2>
+                <div class="data-container">
+                    <div class="detail-row">
+                        <p>Application No: {{ applicationStatus.applicationNumber }}</p>
+                        <p>Status: <span class="badge" [class]="applicationStatus.status">{{ applicationStatus.status | uppercase }}</span></p>
+                    </div>
+                    <div class="detail-row">
+                        <p>Enrollment No: {{ applicationStatus.enrollmentNo }}</p>
+                        <p>Application Type: Transcript</p>
+                    </div>
+                    <div class="detail-row">
+                        <p>Submission Date: {{ applicationStatus.displayDate }}</p>
+                    </div>
+                    <div class="detail-row">
+                        <p>Number of Copies: {{ applicationStatus.numberOfCopies }}</p>
+                        <p>Semesters: {{ applicationStatus.semesters }}</p>
+                    </div>
+                </div>
+                <div class="form-group actions">
+                    <button type="button" class="btn btn-danger reset-btn" (click)="reset()">Reset</button>
+                </div>
+            </ng-container>
         </ng-container>
     </div>
 </section>

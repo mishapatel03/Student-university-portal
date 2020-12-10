@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { Utils } from './../services/utils.service';
 import { Injectable } from '@angular/core';
-import { User } from './user';
+import { User } from 'src/app/typings';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
@@ -35,6 +35,12 @@ export class LoginUserService {
     const userInfo = Utils.isNullOrUndefined(localStorage.userInfo) ? undefined : JSON.parse(localStorage.userInfo);
     
     return !Utils.isNullOrUndefined(userInfo) ? userInfo.isLoggedIn : false;
+  }
+
+  public get userDetails(): User {
+    const userInfo: User = Utils.isNullOrUndefined(localStorage.userInfo) ? undefined : JSON.parse(localStorage.userInfo);
+
+    return userInfo;
   }
 
   public logout(): void {

@@ -1,15 +1,24 @@
-
-<html>
-<body>
-
-<h2>Text input fields</h2>
-
-<form>
-  <label for="fname">First name:</label><br>
-  <input type="text" id="fname" name="fname" value="John"><br>
-  <label for="lname">Last name:</label><br>
-  <input type="text" id="lname" name="lname" value="Doe">
-</form>
-
-</body>
-</html>
+<section>
+  <div class="top-container">
+    <div class="profile-pic">
+      <img class="pic" src="assets/user.png">
+    </div>
+    <div class="user-data">
+      <h2>{{ user.name }}</h2>
+      <div class="detail-row">
+        <p>Enrollment No: {{ user.enrollment }}</p>
+        <p>Email: {{ user.email }}</p>
+      </div>
+      <div class="detail-row">
+        <p>Mobile: {{ user.mobile }}</p>
+        <p>DoB: {{ user.dob }}</p>
+      </div>
+      <div class="detail-row">
+        <p>Address: {{ user.address }}</p>
+      </div>
+    </div>
+  </div>
+  <div>
+    <app-results></app-results>
+  </div>
+</section>

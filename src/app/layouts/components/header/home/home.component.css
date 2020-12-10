@@ -1,0 +1,33 @@
+.top-container {
+    padding: 40px;
+    max-width: 800px;
+    margin: 40px auto;
+    display: flex;
+    background-color: #efefef;
+    border-radius: 4px;
+    box-shadow: 0 6px 8px 0px lightgrey;
+}
+
+.profile-pic {
+    margin-right: 12px;
+}
+
+img.pic {
+    width: 150px;
+    height: 160px;
+    border: 1px solid white;
+    border-radius: 155px;
+    padding: 8px 0 0;
+    background-color: white;
+    box-shadow: 0 0 8px 4px lightgrey;
+}
+
+.user-data {
+    width: 100%;
+    padding: 10px 20px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+}

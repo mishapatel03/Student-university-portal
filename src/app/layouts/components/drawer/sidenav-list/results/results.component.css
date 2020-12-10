@@ -1,0 +1,33 @@
+.accordion-holder {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    box-sizing: content-box;
+}
+
+.page-header {
+    text-align: center;
+    padding: 20px;
+}
+
+.subject-results {
+    padding: 4px;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+}
+
+.result-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.result-row p {
+    margin: 0;
+    padding: 4px;
+}
+
+.header {
+    font-weight: bolder;
+    border-bottom: 1px solid #d0d0d0;
+    margin-bottom: 8px;
+}

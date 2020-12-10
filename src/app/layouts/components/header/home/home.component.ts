@@ -1,7 +1,8 @@
+import { User } from './../../../../typings';
+import { Component, OnInit } from '@angular/core';
 import { Utils } from './../../../../services/utils.service';
 import { LoginUserService } from './../../../../login/login-user.service';
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +12,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   public isLoggedIn: boolean;
+  public user: User;
 
   private loginService: LoginUserService;
   private router: Router;
@@ -25,7 +27,8 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-  
+  public ngOnInit(): void {
+    this.user = this.loginService.userDetails;
+    console.log(this.user);
   }
 }
